@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bildur" />
+        <module name="bildur_maven" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bildur" target="11" />
+      <module name="bildur_maven" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

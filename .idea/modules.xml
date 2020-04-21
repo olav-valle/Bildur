@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bildur.iml" filepath="$PROJECT_DIR$/bildur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bildur_maven.iml" filepath="$PROJECT_DIR$/bildur_maven.iml" />
     </modules>
   </component>
 </project>

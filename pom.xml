@@ -123,6 +123,29 @@
             <version>14.0.1</version>
         </dependency>
 
+        <!--platform specific JFX dependencies-->
+        <!--Windows-->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>14</version>
+            <classifier>win</classifier>
+        </dependency>
+        <!--Linux-->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>14</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <!--Mac-->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>14</version>
+            <classifier>mac</classifier>
+        </dependency>
+
         <dependency>
             <groupId>com.drewnoakes</groupId>
             <artifactId>metadata-extractor</artifactId>
