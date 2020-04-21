@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.bildur.ui.controllers.ThumbnailViewController">
+   <children>
+      <ScrollPane fitToWidth="true" minViewportWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <content>
+            <TilePane fx:id="thumbnailsContainer" hgap="5.0" prefColumns="4" prefRows="4" prefTileHeight="200.0" prefTileWidth="200.0" vgap="5.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </TilePane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

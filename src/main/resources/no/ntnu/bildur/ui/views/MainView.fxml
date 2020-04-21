@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@stylesheets/MainView.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.bildur.ui.controllers.MainController">
+   <left>
+      <VBox id="side_menu" fx:id="side_menu" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-spacing: 5px; -fx-padding: 3px;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="0.0" prefWidth="0.0" styleClass="sideMenuLatest">
+               <children>
+                  <TextFlow focusTraversable="true" onMouseClicked="#viewAllImages">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All images" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow focusTraversable="true" onMouseClicked="#viewAllAlbums">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All albums" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow focusTraversable="true" onMouseClicked="#viewAllTags">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All tags" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow focusTraversable="true" onMouseClicked="#viewAllCollections">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All collections" />
+                     </children>
+                  </TextFlow>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="0.0" prefWidth="0.0" styleClass="sideMenuLatest">
+               <children>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0" styleClass="stone-3-hex">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Latest Photos" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Photo 1" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Photo 1.jpg" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dog.jpg" />
+                     </children>
+                  </TextFlow>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="0.0" prefWidth="0.0" styleClass="sideMenuLatest">
+               <children>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0" styleClass="stone-3-hex">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Latest Created Album" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Album" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Album (2)" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My Album (3)" />
+                     </children>
+                  </TextFlow>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <FlowPane hgap="20.0" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" vgap="5.0">
+                     <children>
+                        <VBox alignment="CENTER" focusTraversable="true" onMouseClicked="#addImage" styleClass="buttonTop">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/file-image-solid-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add images" />
+                           </children>
+                        </VBox>
+                        <VBox focusTraversable="true" onMouseClicked="#createAlbum" styleClass="buttonTop">
+                           <FlowPane.margin>
+                              <Insets left="5.0" />
+                           </FlowPane.margin>
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/photo-album-solid-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New album" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </FlowPane>
+                  <VBox alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextFlow>
+                           <children>
+                              <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="46.1181640625">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="3.0" />
+                           </VBox.margin>
+                        </TextFlow>
+                        <Separator prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <HBox prefWidth="200.0" />
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

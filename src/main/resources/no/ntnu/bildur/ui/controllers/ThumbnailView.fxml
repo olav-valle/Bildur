@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.bildur.ui.controllers.ThumbnailViewController">
+   <children>
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane style="-fx-background-color: #ffffff;" styleClass="stone-3-hex" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" layoutX="18.0" layoutY="17.0" spacing="5.0" styleClass="stone-3-hex" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextField fx:id="searchBar" promptText="Search for image by tag or metadata" HBox.hgrow="ALWAYS" />
+                        <VBox fx:id="searchButton" alignment="CENTER" focusTraversable="true" onMouseClicked="#doSearch" styleClass="buttonTop">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/search-alt-regular-24.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                     <content>
+                        <TilePane fx:id="thumbnailsContainer" alignment="CENTER" hgap="5.0" prefColumns="1" prefRows="0" prefTileHeight="200.0" prefTileWidth="200.0" vgap="5.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TilePane>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="3.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <VBox alignment="CENTER" maxWidth="400.0" minWidth="200.0" prefWidth="400.0" styleClass="sidebarMetadata" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fx:id="previewImage" fitHeight="200.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/Flower_1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <TextFlow prefWidth="200.0">
+                                 <children>
+                                    <Text fx:id="photoName" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
+                                 </padding>
+                              </TextFlow>
+                           </children>
+                        </VBox>
+                        <VBox minHeight="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label text="MetaData:" />
+                              <Separator />
+                              <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" styleClass="metadataDisplay" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="metadataDisplay" cacheShape="false" centerShape="false" hgap="5.0" scaleShape="false" vgap="2.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                       </rowConstraints>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox VBox.vgrow="NEVER">
+                           <children>
+                              <Label text="Tags:" />
+                              <Separator prefWidth="200.0" />
+                              <AnchorPane prefHeight="33.0" prefWidth="183.0">
+                                 <children>
+                                    <TextField fx:id="addTagInput" layoutX="6.0" layoutY="3.0" promptText="Add tag" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="28.0">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" focusTraversable="true" layoutX="147.0" layoutY="3.0" onMouseClicked="#getTagFromUser" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="3.0">
+                                       <image>
+                                          <Image url="@../images/plus-circle-solid-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" minHeight="100.0">
+                                 <content>
+                                    <FlowPane fx:id="tagsFlowPane" hgap="2.0" prefHeight="50.0" prefWidth="198.0" prefWrapLength="200.0" styleClass="tagFlowPane" vgap="2.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

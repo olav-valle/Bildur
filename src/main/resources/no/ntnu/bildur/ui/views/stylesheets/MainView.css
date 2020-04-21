@@ -1,0 +1,92 @@
+.root{
+	-fx-background-color: #A4A6A1;
+}
+
+.sideMenuLatestOld{
+	-fx-background-color: #eaeaea;
+	-fx-border-width: 3px;
+	-fx-border-radius: 7px;
+	-fx-border-color: #454545;
+}
+
+.sideMenuLatest{
+	-fx-spacing: 2px;
+}
+
+.sideMenuLatest > *{
+	-fx-background-color: #BDBFBE;
+	-fx-background-radius: 7px;
+	-fx-padding: 4px;
+}
+
+.sideMenuLatest *:hover{
+	-fx-background-color: #888C89;
+}
+
+.sideMenuLatest > .title{
+	-fx-background-color: #F0F2EB;
+	-fx-background-radius: 7px;
+	-fx-padding: 4px;
+}
+
+.sideMenuLatest > .title:hover{
+	-fx-background-color: #A4A6A1;
+	-fx-background-radius: 7px;
+	-fx-padding: 4px;
+}
+
+
+
+.sideMenuLatest *:focused{
+	-fx-background-color: #888C89;
+}
+
+.buttonTop{
+	-fx-padding: 5px;
+	-fx-background-color: #BDBFBE;
+	-fx-background-radius: 7px;
+	-fx-alignment: center;
+}
+
+.buttonTop:hover{
+	-fx-background-color: #888C89;
+}
+
+.buttonTop:focused{
+	-fx-background-color: #888C89;
+}
+
+.tagFlowPane *{
+	-fx-background-color: #A4A6A1;
+	-fx-background-radius: 7px;
+	-fx-padding: 4px;
+}
+
+.sidebarMetadata{
+    -fx-spacing: 5px;
+    -fx-padding: 3px;
+}
+
+.sidebarMetadata *{
+	-fx-padding: 3px;
+	-fx-margin: 5px;
+	-fx-background-radius: 5px;
+}
+
+Text{
+	-fx-fill: #444444;
+}
+
+
+
+
+.stone-1-hex { -fx-background-color: #BDBFBE; }
+.stone-2-hex { -fx-background-color: #888C89; }
+.stone-3-hex { -fx-background-color: #A4A6A1; }
+.stone-4-hex { -fx-background-color: #D6D9D2; }
+.stone-5-hex { -fx-background-color: #F0F2EB; }
+.stone-1-hex:hover { -fx-background-color: #BDBFBE; }
+.stone-2-hex:hover { -fx-background-color: #888C89; }
+.stone-3-hex:hover { -fx-background-color: #A4A6A1; }
+.stone-4-hex:hover { -fx-background-color: #D6D9D2; }
+.stone-5-hex:hover { -fx-background-color: #F0F2EB; }
