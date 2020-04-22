@@ -47,7 +47,8 @@ public class ArchiveDB implements Archive {
    */
   @Override
   public void addTagToPhoto(String tag, Photo photo) {
-    photo.addTag(new PhotoTag(tag));
+    photo.addTag(tag);
+    importPhoto(photo);
   }
 
 
