@@ -4,8 +4,11 @@ import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -46,6 +49,7 @@ public class ThumbnailViewController {
     private Text photoName;
 
     private Archive photoArchive;
+    private List<String> addToAlbumList;
     private Photo focusedPhoto = null;
 
     public ThumbnailViewController() {
@@ -84,6 +88,24 @@ public class ThumbnailViewController {
             this.addThumbnail(photo);
         });
 
+    }
+
+    /**
+     *
+     * @return list with all the
+     */
+    public List<String> getAddToAlbumList(){
+        if (this.addToAlbumList == null) return null;
+        List<String> returnThis = new ArrayList<>(this.addToAlbumList);
+
+        return returnThis;
+    }
+
+    /**
+     * clears the addToAlbumList.
+     */
+    public void clearAddToAlbumList(){
+        this.addToAlbumList.clear();
     }
 
     /**
@@ -159,6 +181,17 @@ public class ThumbnailViewController {
         }
     }
 
+
+    public boolean addToAlbum(){
+        if (this.focusedPhoto == null) return false; // cant adda  photo if no photo is selected :V
+        if (this.addToAlbumList == null){
+            this.addToAlbumList = new ArrayList<>();
+        }
+
+        String photoURI = this.focusedPhoto.getPathString();
+        this.addToAlbumList.add(photoURI);
+        return true;
+    }
 
     /**
      *

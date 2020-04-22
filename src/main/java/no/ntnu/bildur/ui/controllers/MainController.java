@@ -5,6 +5,8 @@ import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.util.Collection;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -15,11 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import no.ntnu.bildur.model.Archive;
-import no.ntnu.bildur.model.ArchiveDB;
-import no.ntnu.bildur.model.ArchiveLocal;
-import no.ntnu.bildur.model.MetadataController;
-import no.ntnu.bildur.model.Photo;
+import no.ntnu.bildur.model.*;
 
 /**
  * The controller class for MainView.FXML.
@@ -39,6 +37,7 @@ public class MainController {
 
     private Archive photoArchive;
     private ObservableList<Photo> photoListWrapper;
+    private ThumbnailViewController viewController;
 
     /**
      * Constructor, initialize the archive and the PhotoArch
@@ -52,7 +51,17 @@ public class MainController {
      * Used by the create new album button, opens the dialog for creating a new album.
      */
     public void createAlbum() {
-        //todo: create addImage function
+        try {
+            if (this.viewController == null) {
+                throw new MalformedURLException("No Urls in the list");
+            }
+            ExportPDF exportPDF = new ExportPDF();
+            List<String> images = this.viewController.getAddToAlbumList();
+            exportPDF.exportListToPDF(images);
+        }
+        catch (FileNotFoundException | MalformedURLException e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -106,9 +115,9 @@ public class MainController {
         try {
             FXMLLoader er = new FXMLLoader(getClass().getResource("ThumbnailView.fxml"));
             thumbs = er.load();
-            ThumbnailViewController thumbnailViewController = er.getController();
-            thumbnailViewController.setPhotoArchive(photoArchive);
-            photoListWrapper.addListener(thumbnailViewController.getListener());
+            viewController = er.getController();
+            viewController.setPhotoArchive(photoArchive);
+            photoListWrapper.addListener(viewController.getListener());
             root.setCenter(thumbs);
         }
         catch (IOException e){
