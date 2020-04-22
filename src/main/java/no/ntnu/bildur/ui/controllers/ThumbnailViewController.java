@@ -16,7 +16,6 @@ import javafx.scene.text.TextFlow;
 import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
-import no.ntnu.bildur.model.PhotoTag;
 
 import java.security.InvalidParameterException;
 import java.util.Collection;

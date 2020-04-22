@@ -5,8 +5,10 @@ import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,17 +19,12 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.ArchiveDB;
-import no.ntnu.bildur.model.ArchiveLocal;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
 
 /**
  * The controller class for MainView.FXML.
- *
- *
  */
-import java.io.IOException;
-import java.util.stream.Collectors;
 
 public class MainController {
 
