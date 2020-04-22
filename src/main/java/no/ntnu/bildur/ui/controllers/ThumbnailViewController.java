@@ -3,24 +3,24 @@ package no.ntnu.bildur.ui.controllers;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
+import java.security.InvalidParameterException;
+import java.util.Collection;
+import java.util.Iterator;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
-import no.ntnu.bildur.model.PhotoTag;
-
-import java.security.InvalidParameterException;
-import java.util.Collection;
-import java.util.Iterator;
 
 public class ThumbnailViewController {
 
