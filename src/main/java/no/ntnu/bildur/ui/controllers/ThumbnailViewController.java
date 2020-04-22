@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
@@ -121,24 +123,39 @@ public class ThumbnailViewController {
         int i = 0;
         this.metadataDisplay.getChildren().clear();
         for(Directory dir : dirs) {
-            //System.out.println(dir.getName());
-            this.metadataDisplay.add(new Text(dir.getName()),0,i,2,1);
+            TextFlow metadata = new TextFlow(new Text(dir.getName()));
+            metadata.setStyle("-fx-background-color: #BDBFBE;");
+
+            // metadata group
+            this.metadataDisplay.add(metadata,0,i,2,1);
             Collection<Tag> tags = dir.getTags();
             i++;
             for(Tag t : tags) {
-                //System.out.println("   " + t.getTagName() + ": " + t.getDescription());
-                this.metadataDisplay.add(new Text(t.getTagName() + ": "),0,i);
-                this.metadataDisplay.add(new Text(t.getDescription()),1,i);
+
+                // Tag Name
+                TextFlow tagName = new TextFlow(new Text(t.getTagName() + ": "));
+                tagName.setTextAlignment(TextAlignment.RIGHT);
+                this.metadataDisplay.add(tagName,0,i);
+
+                // Tag description
+                String tagDescription = t.getDescription();
+                if (tagDescription.length() > 300){
+                    tagDescription = tagDescription.substring(0,350) + "...";
+                }
+                this.metadataDisplay.add(new TextFlow(new Text(tagDescription)),1,i);
                 i++;
             }
         }
 
         // tags
-        this.tagsFlowPane.getChildren().clear();
-        Iterator<PhotoTag> photos = photo.getTagIterator();
+        this.tagsFlowPane.getChildren().clear(); // Empty the tags field.
+        Iterator<String> photos = photo.getTagIterator();
         while (photos.hasNext()){
-            Label tag = new Label(photos.next().getValue());
-            this.tagsFlowPane.getChildren().add(tag);
+            String tag = photos.next();
+            if (!tag.equals("")){
+                Label tagLable = new Label(tag);
+                this.tagsFlowPane.getChildren().add(tagLable);
+            }
         }
     }
 

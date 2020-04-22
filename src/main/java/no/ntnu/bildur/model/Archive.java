@@ -1,9 +1,16 @@
 package no.ntnu.bildur.model;
 
 import java.util.Collection;
-import java.util.List;
 
+/**
+ * Interface for the photo archive classes.
+ */
 public interface Archive {
+
+  /**
+   * Imports an image file into the database.
+   * @param imageFile A File object representing an image file.
+   */
   void importPhoto(Photo imageFile);
 
   /**

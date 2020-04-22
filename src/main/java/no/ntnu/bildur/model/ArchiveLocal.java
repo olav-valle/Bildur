@@ -42,7 +42,6 @@ public class ArchiveLocal implements Archive {
 
   @Override
   public void addTagToPhoto(String tag, Photo photo) {
-
   }
 
   @Override

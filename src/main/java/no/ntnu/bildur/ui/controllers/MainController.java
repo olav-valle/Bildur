@@ -61,6 +61,7 @@ public class MainController {
      */
     public void addImage() {
         List<File> addedFiles = this.doShowImageFileChooser();
+        // FIXME: 22/04/2020 catch exception if user cancels selection
         List<Photo> addedPhotos = addedFiles.stream()
                 .map(Photo::new)
                 .collect(Collectors.toList());
@@ -165,7 +166,7 @@ public class MainController {
 
 
     /**
-     *
+     * Prints human readable metadata info for an image to system.out.
      */
     public void doPrintMetadata(Photo photo) {
         Metadata meta = MetadataController.readMetadata(photo.getImageFile());
