@@ -34,6 +34,20 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:14" level="project" />
     <orderEntry type="library" name="Maven: com.drewnoakes:metadata-extractor:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: com.adobe.xmp:xmpcore:6.0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:barcodes:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:font-asian:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:forms:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:hyph:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:io:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:kernel:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.64" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.64" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:layout:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:pdfa:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:sign:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:styled-xml-parser:7.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.itextpdf:svg:7.1.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.derby:derby:10.10.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.7.6" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:jakarta.persistence:2.2.3" level="project" />
