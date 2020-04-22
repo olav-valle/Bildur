@@ -6,3 +6,5 @@ shade/
 target/
 
 derby.log
+/out/
+/images/ImageToPdf.pdf
