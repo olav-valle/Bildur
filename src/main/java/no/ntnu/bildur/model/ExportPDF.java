@@ -6,9 +6,9 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
+
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExportPDF {
@@ -20,16 +20,6 @@ public class ExportPDF {
     }
 
     public ExportPDF(){
-        List<String> test = new ArrayList<>();
-        test.add(OUTPUT_FOLDER + "Cat_1.jpg");
-        test.add(OUTPUT_FOLDER + "Cat_2.jpg");
-        test.add(OUTPUT_FOLDER + "Cat_3.jpg");
-        try {
-            exportListToPDF(test);
-        }
-        catch (FileNotFoundException | MalformedURLException e){
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -40,8 +30,9 @@ public class ExportPDF {
      * @throws FileNotFoundException Cant find the file of the URL.
      * @throws MalformedURLException A malformed URL has occurred.
      */
-    public void exportListToPDF(List<String> imageURL) throws FileNotFoundException, MalformedURLException{
-        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(OUTPUT_FOLDER + "ImageToPdf.pdf"));
+    public void exportListToPDF(List<String> imageURL, String outputDir)
+            throws FileNotFoundException, MalformedURLException{
+        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(outputDir + "/MyAlbum.pdf"));
         Document document = new Document(pdfDocument);
 
         for (String pictureURL : imageURL){

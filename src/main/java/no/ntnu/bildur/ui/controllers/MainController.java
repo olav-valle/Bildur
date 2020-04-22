@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.DirectoryChooser;
 import no.ntnu.bildur.model.*;
 
 /**
@@ -52,12 +53,15 @@ public class MainController {
      */
     public void createAlbum() {
         try {
+            DirectoryChooser dc = new DirectoryChooser();
+            String outputDir = dc.showDialog(null).toString();
+
             if (this.viewController == null) {
-                throw new MalformedURLException("No Urls in the list");
+                throw new MalformedURLException("No URL");
             }
             ExportPDF exportPDF = new ExportPDF();
             List<String> images = this.viewController.getAddToAlbumList();
-            exportPDF.exportListToPDF(images);
+            exportPDF.exportListToPDF(images,outputDir);
         }
         catch (FileNotFoundException | MalformedURLException e){
             e.printStackTrace();
