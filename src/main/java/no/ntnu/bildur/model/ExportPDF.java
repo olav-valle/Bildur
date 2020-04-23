@@ -11,13 +11,11 @@ import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.util.List;
 
-public class ExportPDF {
-    private static final String TEST_IMG = "C:/Users/NekoFlaa/IdeaProjects/bildur_maven/images/Cat_1.jpg";
-    private static final String OUTPUT_FOLDER = "C:/Users/NekoFlaa/IdeaProjects/bildur_maven/images/";
 
-    public static void main(String[] args){
-        new ExportPDF();
-    }
+/**
+ * Responsible for creating and writing photo albums as a PDF document.
+ */
+public class ExportPDF {
 
     public ExportPDF(){
     }
@@ -31,7 +29,7 @@ public class ExportPDF {
      * @throws MalformedURLException A malformed URL has occurred.
      */
     public void exportListToPDF(List<String> imageURL, String outputDir)
-            throws FileNotFoundException, MalformedURLException{
+            throws FileNotFoundException, MalformedURLException {
         PdfDocument pdfDocument = new PdfDocument(new PdfWriter(outputDir + "/MyAlbum.pdf"));
         Document document = new Document(pdfDocument);
 

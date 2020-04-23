@@ -25,6 +25,11 @@ import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
 
+
+/**
+ * this is the controller class that goes with ThumbnailViewController.XML
+ * ThubnailView will display photos
+ */
 public class ThumbnailViewController {
 
     @FXML
@@ -91,10 +96,11 @@ public class ThumbnailViewController {
     }
 
     /**
-     *
-     * @return list with all the
+     * A temp
+     * @return list with all the URLs for all the photos added to the addToAlbumList.
      */
     public List<String> getAddToAlbumList(){
+        //todo: make a better code for
         if (this.addToAlbumList == null) return null;
         List<String> returnThis = new ArrayList<>(this.addToAlbumList);
 
@@ -224,14 +230,13 @@ public class ThumbnailViewController {
      * @return
      */
     public ListChangeListener<Photo> getListener(){
-        //I have no idea what i am doing... but it's working so im fine with it :)
+        //I have no idea what i am doing... but it's working :)
         return new ListChangeListener<Photo>() {
             @Override
             public void onChanged(Change<? extends Photo> c) {
                 while (c.next()){
                     if (c.wasPermutated()){
                         for (int i = c.getFrom(); i < c.getTo(); ++i) {
-                            //permutate
                         }
                     }
                     else if(c.wasUpdated()){
