@@ -3,13 +3,21 @@ package no.ntnu.bildur.ui.controllers;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
@@ -17,10 +25,11 @@ import no.ntnu.bildur.model.Archive;
 import no.ntnu.bildur.model.MetadataController;
 import no.ntnu.bildur.model.Photo;
 
-import java.security.InvalidParameterException;
-import java.util.Collection;
-import java.util.Iterator;
 
+/**
+ * this is the controller class that goes with ThumbnailViewController.XML
+ * ThubnailView will display photos
+ */
 public class ThumbnailViewController {
 
     @FXML
@@ -45,6 +54,7 @@ public class ThumbnailViewController {
     private Text photoName;
 
     private Archive photoArchive;
+    private List<String> addToAlbumList;
     private Photo focusedPhoto = null;
 
     public ThumbnailViewController() {
@@ -83,6 +93,25 @@ public class ThumbnailViewController {
             this.addThumbnail(photo);
         });
 
+    }
+
+    /**
+     * A temp
+     * @return list with all the URLs for all the photos added to the addToAlbumList.
+     */
+    public List<String> getAddToAlbumList(){
+        //todo: make a better code for
+        if (this.addToAlbumList == null) return null;
+        List<String> returnThis = new ArrayList<>(this.addToAlbumList);
+
+        return returnThis;
+    }
+
+    /**
+     * clears the addToAlbumList.
+     */
+    public void clearAddToAlbumList(){
+        this.addToAlbumList.clear();
     }
 
     /**
@@ -159,6 +188,17 @@ public class ThumbnailViewController {
     }
 
 
+    public boolean addToAlbum(){
+        if (this.focusedPhoto == null) return false; // cant adda  photo if no photo is selected :V
+        if (this.addToAlbumList == null){
+            this.addToAlbumList = new ArrayList<>();
+        }
+
+        String photoURI = this.focusedPhoto.getPathString();
+        this.addToAlbumList.add(photoURI);
+        return true;
+    }
+
     /**
      *
      */
@@ -190,14 +230,13 @@ public class ThumbnailViewController {
      * @return
      */
     public ListChangeListener<Photo> getListener(){
-        //I have no idea what i am doing... but it's working so im fine with it :)
+        //I have no idea what i am doing... but it's working :)
         return new ListChangeListener<Photo>() {
             @Override
             public void onChanged(Change<? extends Photo> c) {
                 while (c.next()){
                     if (c.wasPermutated()){
                         for (int i = c.getFrom(); i < c.getTo(); ++i) {
-                            //permutate
                         }
                     }
                     else if(c.wasUpdated()){

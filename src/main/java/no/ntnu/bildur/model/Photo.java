@@ -120,6 +120,12 @@ public class Photo implements Serializable {
     return Arrays.asList(test.split(" , "));
   }
 
-
+  /**
+   * Returns string of path to this photo.
+   * @return string of path to this photo.
+   */
+  public String getPathString() {
+    return this.imageFile.toString();
+  }
 }
 
