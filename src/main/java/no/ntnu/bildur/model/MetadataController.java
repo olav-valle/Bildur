@@ -15,6 +15,7 @@ import java.util.Iterator;
  * @author Olav Valle
  */
 public class MetadataController {
+
   /**
    * MetadataController constructor.
    */
@@ -31,14 +32,17 @@ public class MetadataController {
   public static Metadata readMetadata(File image) {
     if (image == null) {
       throw new IllegalArgumentException("File was null");
+      // TODO: 22/04/2020 test ex throw
     }
     Metadata meta = null;
     try {
       meta = ImageMetadataReader.readMetadata(image);
     } catch (ImageProcessingException | IOException ioe) {
       ioe.printStackTrace();
+      // TODO: 22/04/2020 throw?
     }
     return meta;
+    // TODO: 23/04/2020 test for null return on failed image read?
   }
   
   /**
@@ -49,6 +53,7 @@ public class MetadataController {
   public static Iterable<Directory> getMetaDirectoryIterator(File image ) {
     if (image == null) {
       throw new IllegalArgumentException("File was null");
+      // TODO: 22/04/2020 test ex throw
     }
     return readMetadata(image).getDirectories();
   }

@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.bildur.ui.controllers.ThumbnailViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.bildur.ui.controllers.ThumbnailViewController">
    <children>
       <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -90,7 +90,7 @@
                                           <Insets bottom="2.0" left="2.0" right="3.0" top="2.0" />
                                        </padding>
                                     </TextFlow>
-                                    <Button mnemonicParsing="false" styleClass="buttonTop" text="Add to Collection" />
+                                    <Button mnemonicParsing="false" onAction="#addToAlbum" styleClass="buttonTop" text="Add to Collection" />
                                     <Button layoutX="347.0" layoutY="10.0" mnemonicParsing="false" styleClass="buttonTop" text="Remove" />
                                  </children>
                                  <VBox.margin>
