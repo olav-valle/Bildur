@@ -1,6 +1,9 @@
 package no.ntnu.bildur.model;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 import java.io.File;
 import java.nio.file.Path;
 import java.sql.DriverManager;
@@ -8,6 +11,7 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
 import java.util.Collection;
+import java.util.Iterator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +25,7 @@ class ArchiveDBTest {
   @BeforeEach
   void setUp() {
     archive = new ArchiveDB("test");
-    testFile = new File("/ccwn2c08.png");
+    testFile = new File("ccwn2c08.png");
     testPhoto = new Photo(testFile);
 
 
@@ -81,7 +85,18 @@ class ArchiveDBTest {
   }
 
   @Test
-  void addTagToPhoto() {
+  void addTagToPhotoSuccess() {
+    System.out.println("Testing addTagToPhoto");
+    String testTag = "TEST_TAG";
+    try {
+      archive.addTagToPhoto(testTag, testPhoto);
+    } catch (Exception e) {
+      System.out.println(e.toString());
+      e.printStackTrace();
+      Assertions.fail();
+    }
+    Iterator<String> tags = testPhoto.getTagIterator();
+    assertEquals(tags.next(), testTag);
   }
 
   @Test

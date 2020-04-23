@@ -103,7 +103,7 @@ class PhotoTest {
       Assertions.fail();
       // If ex was caught, tag adding failed unexpectedly.
     }
-    Iterator tags = testPhoto.getTagIterator();
+    Iterator<String> tags = testPhoto.getTagIterator();
     assertEquals(tags.next(), "FIRST_TAG", "First tag was not: FIRST_TAG");
     assertEquals(tags.next(), "NEXT_TAG", "Second tag was not: NEXT_TAG");
     assertEquals(tags.next(), "LAST_TAG", "Last tag was not: LAST_TAG");
