@@ -25,6 +25,7 @@ public class ArchiveDB implements Archive {
    */
   @Override
   public void importPhoto(Photo imageFile) {
+    // TODO: 22/04/2020 how to test?
     em.getTransaction().begin();
     em.persist(imageFile);
     em.getTransaction().commit();
@@ -47,8 +48,15 @@ public class ArchiveDB implements Archive {
    */
   @Override
   public void addTagToPhoto(String tag, Photo photo) {
-    photo.addTag(tag);
-    importPhoto(photo);
+    // TODO: 22/04/2020 nullcheck and throw ex
+    if (tag != null) {
+      try {
+        photo.addTag(tag);
+        importPhoto(photo);
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
 

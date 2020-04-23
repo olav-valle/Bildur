@@ -30,11 +30,14 @@ public class Photo implements Serializable {
    * @param file The File object that this object will represent.
    */
   public Photo(File file) {
-    // TODO: 19/03/2020 throw ex if file is not of a valid file type (.jpg etc..)?
 
-    this.imageFile = file;
-    fileName = imageFile.getName();
-    tags = "";
+    if (file != null) {
+      this.imageFile = file;
+      fileName = imageFile.getName();
+      tags = "";
+    } else {
+      throw new IllegalArgumentException("Photo cannot be created from null object.");
+    }
   }
 
   public Photo() {
@@ -48,15 +51,6 @@ public class Photo implements Serializable {
    */
   public URI getURI() {
     return imageFile.toURI();
-  }
-
-  /**
-   * Retuns stringpath of this photo.
-   *
-   * @return Stringpath of this photo.
-   */
-  public String getPathString() {
-    return this.imageFile.toString();
   }
 
   /**
@@ -103,12 +97,6 @@ public class Photo implements Serializable {
     return this.tagStringToList(tags).iterator();
   }
 
-
-  public List<String> getTagList(){
-    return tagStringToList(this.tags);
-  }
-
-
   /**
    * Joins a List<String> to a single string, separating the elements with " , ".
    * Used as a part of a workaround for saving tags to the database.
@@ -123,7 +111,6 @@ public class Photo implements Serializable {
       return x;
     }).get();
   }
-
 
   /**
    * Splits a String by " , " and returns it as a List<String>
