@@ -41,7 +41,7 @@ public class MainController {
      * Constructor, initialize the archive and the PhotoArch
      */
     public MainController() {
-        photoArchive = new ArchiveDB();
+        photoArchive = new ArchiveDB("localDB");
         photoListWrapper = FXCollections.observableArrayList(photoArchive.getArchiveList());
     }
 

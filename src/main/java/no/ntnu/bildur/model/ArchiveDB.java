@@ -13,9 +13,9 @@ public class ArchiveDB implements Archive {
   private final EntityManagerFactory emf;
   private final EntityManager em;
 
-  public ArchiveDB(){
+  public ArchiveDB(String persistenceUnit){
     // switch PU name to "imageDB" for MySQL DB.
-    emf = Persistence.createEntityManagerFactory("localDB");
+    emf = Persistence.createEntityManagerFactory(persistenceUnit);
     em = this.emf.createEntityManager();
   }
 
