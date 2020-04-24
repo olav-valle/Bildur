@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"no.ntnu.bildur"},{"l":"no.ntnu.bildur.model"},{"l":"no.ntnu.bildur.ui.controllers"},{"l":"no.ntnu.bildur.ui.views"}]
