@@ -12,6 +12,7 @@ import java.util.Iterator;
 /**
  * Controls all image metadata manipulation.
  * Implements classes from Drew Noakes https://drewnoakes.com.
+ *
  * @author Olav Valle
  */
 public class MetadataController {
@@ -23,9 +24,10 @@ public class MetadataController {
   }
 
   /**
-   * Reads and returns the Metadata contained in the parameter File image.
-   * The Metadata object that is returned is implemented by Drew Noakes https://drewnoakes.com,
-   * com.drew.metadata.Metadata. Returns null if metadata extraction fails.
+   * Reads and returns the Metadata contained in the parameter File image.<br>
+   * The Metadata object that is returned is implemented by Drew Noakes https://drewnoakes.com,<br>
+   * com.drew.metadata.Metadata. Returns null if metadata extraction fails.<br>
+   *
    * @param image The image File to read metadata from.
    * @return A Metadata object containing directories of tags with values and any processing errors.
    */
@@ -47,6 +49,7 @@ public class MetadataController {
   
   /**
    * Returns an iterable containing the metadata directories for the parameter image File.
+   *
    * @param image A File object representing the image to retrieve metadata from.
    * @return Iterable of Directory objects.
    */

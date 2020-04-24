@@ -9,18 +9,21 @@ public interface Archive {
 
   /**
    * Imports an image file into the database.
+   *
    * @param imageFile A File object representing an image file.
    */
   void importPhoto(Photo imageFile);
 
   /**
    * Returns a collection of the Photo objects held in DB.
-   * @return
+   *
+   * @return a Collections of Photo objects.
    */
   Collection<Photo> getArchiveList();
 
   /**
    * Adds a tag to a photo.
+   *
    * @param tag String representing the tag.
    * @param photo The photo which is being tagged.
    */

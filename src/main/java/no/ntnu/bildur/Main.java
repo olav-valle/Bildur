@@ -3,6 +3,9 @@ package no.ntnu.bildur;
 import javafx.application.Application;
 import no.ntnu.bildur.ui.views.MainView;
 
+/**
+ * The entry-point to start the application.
+ */
 public class Main {
 
   /**
@@ -13,6 +16,4 @@ public class Main {
   public static void main(String[] args) {
     Application.launch(MainView.class);
   }
-
-
 }

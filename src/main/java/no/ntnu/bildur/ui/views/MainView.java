@@ -9,7 +9,7 @@ import no.ntnu.bildur.ui.controllers.MainController;
 
 
 /**
- * The startingpoint for the app
+ * The starting point for the GUI
  */
 public class MainView extends Application {
 
@@ -31,9 +31,6 @@ public class MainView extends Application {
   }
 
   @Override
-  /**
-   * todo: javadoc
-   */
   public void stop() {
     // TODO: 07/04/2020 Where do we place calls to close database EM at app exit?
 

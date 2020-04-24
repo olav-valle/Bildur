@@ -73,7 +73,7 @@
 	-fx-background-radius: 5px;
 }
 
-Text{
+Text, label{
 	-fx-fill: #363636;
 }
 

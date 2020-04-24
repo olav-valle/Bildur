@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * The photo details archive. Stores Image objects in a collection.
+ * The photo details archive. Stores Image objects in a collection.<br>
+ * This archive does not use any form of permanent storage<br>
+ * and will clear all data when the app closes.<br>
  */
 // TODO: 19/03/2020 Do we make the Archive itself serializable,
 //  or the objects held in the archive collection?
@@ -33,6 +35,7 @@ public class ArchiveLocal implements Archive {
 
   /**
    * Returns the archive collection a List Object.
+   *
    * @return The Archive as a list.
    */
   @Override

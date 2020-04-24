@@ -51,7 +51,7 @@ public class MainController {
     }
 
     /**
-     * Used by the create new album button, opens the dialog for creating a new album.
+     * The logic for "new album" button, opens the dialog for creating a new album.
      */
     public void createAlbum() {
         try {
@@ -72,7 +72,7 @@ public class MainController {
     }
 
     /**
-     * the logic for an addImage button.
+     * The logic for an "add image" button.
      */
     public void addImage() {
         List<File> addedFiles = this.doShowImageFileChooser();
@@ -88,8 +88,10 @@ public class MainController {
     }
 
     /**
-     * Display all the images in the main section
+     * Display all the images in the main section.
+     * Tag list is not implemented in this release
      */
+    //Todo: update Java doc after adding tag list.
     public void viewAllTags() {
         //todo: add
         this.setTitleText("All Tags");
@@ -100,8 +102,10 @@ public class MainController {
     }
 
     /**
-     * Display all the images in the main section
+     * Display all the Collections in the main section
+     * Tag list is not implemented in this release
      */
+    //Todo: update Java doc after adding Collections.
     public void viewAllCollections() {
         //todo: add
         this.setTitleText("All Collections");
@@ -183,7 +187,7 @@ public class MainController {
     /**
      * Prints human readable metadata info for an image to system.out.
      */
-    public void doPrintMetadata(Photo photo) {
+    private void doPrintMetadata(Photo photo) {
         Metadata meta = MetadataController.readMetadata(photo.getImageFile());
         Iterable<Directory> dirs = meta.getDirectories();
         for(Directory dir : dirs) {

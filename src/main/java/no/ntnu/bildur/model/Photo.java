@@ -40,9 +40,6 @@ public class Photo implements Serializable {
     }
   }
 
-  public Photo() {
-
-  }
 
   /**
    * Returns the URI of this photo.
@@ -72,7 +69,7 @@ public class Photo implements Serializable {
   }
 
   /**
-   * Adds a tag to the photo.
+   * Adds a tag to the photo.<br>
    * Throws IllegalArgumentException if the input is Null of an empty string.
    *
    * @param tag The tag this photo is being marked with.
@@ -92,17 +89,22 @@ public class Photo implements Serializable {
 
   /**
    * Returns an iterator of the tags associated with this photo.
+   *
+   * @return Returns an Iterator containing the tags for this Photo object.
    */
   public Iterator<String> getTagIterator( ) {
     return this.tagStringToList(tags).iterator();
   }
 
   /**
-   * Joins a List<String> to a single string, separating the elements with " , ".
+   * Joins a List of Strings to a single string, separating the elements with " , ".<br>
    * Used as a part of a workaround for saving tags to the database.
+   *
+   * @param tagList A list of strings representing photo tags.
+   * @return a String of tags separated by " , ".
    */
-  private String tagListToString(List<String> test){
-    return test.stream().reduce((x, y) -> {
+  private String tagListToString(List<String> tagList){
+    return tagList.stream().reduce((x, y) -> {
       if (x.equals("")) {
         x = y;
       } else {
@@ -113,15 +115,18 @@ public class Photo implements Serializable {
   }
 
   /**
-   * Splits a String by " , " and returns it as a List<String>
-   * Used as a part of a workaround for saving tags to the database.
+   * Splits a String by " , " and returns it as a List of Strings.
+   *
+   * @param tagString the String of tags to convert to a list
+   * @return a List of strings representing image tags.
    */
-  private List<String> tagStringToList(String test){
-    return Arrays.asList(test.split(" , "));
+  private List<String> tagStringToList(String tagString){
+    return Arrays.asList(tagString.split(" , "));
   }
 
   /**
    * Returns string of path to this photo.
+   *
    * @return string of path to this photo.
    */
   public String getPathString() {

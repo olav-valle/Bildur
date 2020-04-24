@@ -30,8 +30,8 @@ import no.ntnu.bildur.model.Photo;
 
 
 /**
- * this is the controller class that goes with ThumbnailViewController.XML
- * ThubnailView will display photos
+ * The controller class for ThumbnailViewController.XML
+ * ThumbnailView will display photos as thumbnails.
  */
 public class ThumbnailViewController {
 
@@ -60,14 +60,16 @@ public class ThumbnailViewController {
     private List<String> addToAlbumList;
     private Photo focusedPhoto = null;
 
+
     public ThumbnailViewController() {
 
     }
 
     /**
-     * Adds an ImageView to the thumbnails.
+     * Adds an ImageView to the thumbnails and returns the created ImageView object as a thumbnail.
      *
      * @param photo the Photo to add.
+     * @return and ImageView of the Photo object as a thumbnail.
      */
     public ImageView addThumbnail(Photo photo) {
 
@@ -86,9 +88,10 @@ public class ThumbnailViewController {
     }
 
     /**
-     * Ths method is a workaround for not being able to use a normal constructor
-     * as a result of using FXML. It sets the Photoarcive to be the same as
-     * @param archive
+     * Ths method is a workaround for not being able to use a normal constructor <br>
+     * as a result of using FXML. Sets this class archive so Search functions ans such can accesses it.
+     *
+     * @param archive the archive to display
      */
     public void setPhotoArchive(Archive archive) {
         this.photoArchive = archive;
@@ -99,11 +102,12 @@ public class ThumbnailViewController {
     }
 
     /**
-     * A temp
-     * @return list with all the URLs for all the photos added to the addToAlbumList.
+     * Return a list with all the URLs for all the photos added to the <code>addToAlbumList</code>.
+     *
+     * @return list with all the URLs for all the photos added to the <code>addToAlbumList</code>.
      */
     public List<String> getAddToAlbumList(){
-        //todo: make a better code for
+        //todo: make a better code for this
         if (this.addToAlbumList == null) return null;
         List<String> returnThis = new ArrayList<>(this.addToAlbumList);
 
@@ -111,14 +115,14 @@ public class ThumbnailViewController {
     }
 
     /**
-     * clears the addToAlbumList.
+     * Clears the <code>addToAlbumList</code>.
      */
     public void clearAddToAlbumList(){
         this.addToAlbumList.clear();
     }
 
     /**
-     * It does searching, for pictures, based on user input.
+     * It does searching, for pictures, based on user input.<br>
      * Reads the text in the search bar and displays the images that match the search.
      */
     public void doSearch() {
@@ -134,17 +138,18 @@ public class ThumbnailViewController {
     }
 
     /**
-     * Takes in a photo object and displays it's information to
+     * Takes in a photo object and displays it's information to<br>
      * the user on the right side in the app, and sets the focusedPhoto to that photo.
      *
      * @param photo Photo object to display.
      */
     public void displayPhotoInfo(Photo photo) {
+        //Todo: split this in smaller methods.
         Image image = new Image(String.valueOf(photo.getURI()));
         Metadata meta = MetadataController.readMetadata(photo.getImageFile());
         Iterable<Directory> dirs = meta.getDirectories();
 
-        // Photo
+        // PhotoThumbnail
         this.focusedPhoto = photo;
         this.photoName.setText(photo.getFileName());
         this.previewImage.setImage(image);
@@ -190,7 +195,11 @@ public class ThumbnailViewController {
         }
     }
 
-
+    /**
+     * Adds teh focused Picture to the <code>addToAlbumList</code>.
+     *
+     * @return a boolean that tells if the operation was a success.
+     */
     public boolean addToAlbum(){
         if (this.focusedPhoto == null) return false; // cant adda  photo if no photo is selected :V
         if (this.addToAlbumList == null){
@@ -203,9 +212,9 @@ public class ThumbnailViewController {
     }
 
     /**
-     *
+     * For testing.
      */
-    public void doPrintMetadata(Photo photo) {
+    private void doPrintMetadata(Photo photo) {
         Metadata meta = MetadataController.readMetadata(photo.getImageFile());
         Iterable<Directory> dirs = meta.getDirectories();
         for(Directory dir : dirs) {
@@ -229,11 +238,13 @@ public class ThumbnailViewController {
 
 
     /**
-     * Returns a ListChangeListener.
-     * @return
+     * Returns a ListChangeListener so newly add pictures are added as thumbnails in the thumbnail view
+     * @return ListChangeListener
      */
     public ListChangeListener<Photo> getListener(){
+
         //I have no idea what i am doing... but it's working :)
+        //todo: refactor this with a more relevant observer pattern.
         return new ListChangeListener<Photo>() {
             @Override
             public void onChanged(Change<? extends Photo> c) {

@@ -13,6 +13,13 @@ public class ArchiveDB implements Archive {
   private final EntityManagerFactory emf;
   private final EntityManager em;
 
+  /**
+   * Opens and uses the relevant database, sakes a String as argument to determent what database to use.<br>
+   * Use argument "loacalDB" for local database, <br>
+   * and "imageDB" to use NTNU's cloud database.
+   *
+   * @param persistenceUnit the name of database to use.
+   */
   public ArchiveDB(String persistenceUnit){
     // switch PU name to "imageDB" for MySQL DB.
     emf = Persistence.createEntityManagerFactory(persistenceUnit);
@@ -21,6 +28,7 @@ public class ArchiveDB implements Archive {
 
   /**
    * Imports an image file into the database.
+   *
    * @param imageFile A File object representing an image file.
    */
   @Override
@@ -33,6 +41,7 @@ public class ArchiveDB implements Archive {
 
   /**
    * Returns a collection of the Photo objects held in DB.
+   *
    * @return a collection of the Photo objects held in DB.
    */
   @Override
@@ -43,6 +52,7 @@ public class ArchiveDB implements Archive {
 
   /**
    * Adds a tag to a photo.
+   *
    * @param tag String representing the tag.
    * @param photo The photo which is being tagged.
    */

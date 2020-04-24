@@ -13,10 +13,14 @@ import java.util.List;
 
 
 /**
- * Responsible for creating and writing photo albums as a PDF document.
+ * Responsible for creating and writing photo albums as a PDF document.<br>
+ * Uses library from https://itextpdf.com/
  */
 public class ExportPDF {
 
+    /**
+     * Constructor of ExportPDF.
+     */
     public ExportPDF(){
     }
 
@@ -24,7 +28,7 @@ public class ExportPDF {
      * Takes in a list of image URL and adds the images the URL is pointing at to a pdf document.
      *
      * @param imageURL List of URLs to add.
-     *
+     * @param outputDir the folder to place the created PDF.
      * @throws FileNotFoundException Cant find the file of the URL.
      * @throws MalformedURLException A malformed URL has occurred.
      */
